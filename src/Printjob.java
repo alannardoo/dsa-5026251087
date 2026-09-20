@@ -4,7 +4,7 @@ public abstract class Printjob implements Chargeable {
 
     public Printjob( String id, int pages){
         if(pages <= 0){
-            throw new IllegalArgumentException("Copies or Pages must at least 1 !");
+            throw new IllegalArgumentException("Copies or Pages can't be negative!");
     }
         
         this.id = id;
@@ -18,7 +18,11 @@ public abstract class Printjob implements Chargeable {
     int getPages(){
         return pages;
     }
+
     int calculateCharge(int copies){
+        if(copies <= 0){
+            throw new IllegalArgumentException("copies or pages can't be negative!");
+        }
         int total;
         total = copies*calculateCharge();
         return total;
@@ -28,7 +32,9 @@ public abstract class Printjob implements Chargeable {
         System.out.println(getId() + " | " + label() + " | " + calculateCharge());
     }
 
+    @Override 
     public abstract int calculateCharge();
+
     public abstract String label();
 
 }

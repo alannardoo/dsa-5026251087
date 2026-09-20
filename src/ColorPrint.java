@@ -5,12 +5,13 @@ public class ColorPrint extends Printjob{
         super(id, pages);
     }
 
+    @Override 
     public String label(){
         String label = "Colour";
         return label;
     }
 
-
+    @Override 
     public int calculateCharge(){
         int total;
         if(pages <= 10){
