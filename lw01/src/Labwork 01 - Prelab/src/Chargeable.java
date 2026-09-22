@@ -1,0 +1,4 @@
+interface Chargeable {
+    int calculateCharge();
+
+}
